@@ -270,8 +270,28 @@ body {
   color: var(--secondary-text-color);
 }
 
+.other-info {
+  color: var(--secondary-text-color);
+  gap: 24px;
+}
+
+.likes,
+.dislikes,
+.hobbies {
+  flex: 1 1 33.333%;
+}
+
+.likes__header,
+.dislikes__header,
+.hobbies__header {
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
 @media screen and (max-width: 576px) {
   .main-info,
+  .other-info,
   .contact_info_container {
     flex-direction: column;
   }
