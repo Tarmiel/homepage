@@ -49,25 +49,6 @@ body {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 576px) {
-  .main-info,
-  .contact_info_container {
-    flex-direction: column;
-  }
-
-  .contact_info_container {
-    align-items: center;
-  }
-
-  .contact-info__block:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  .experiences {
-    margin-right: 0;
-  }
-}
-
 /* Contact info styles */
 .contact-info__header,
 .contact-info__sub-header {
@@ -86,14 +67,29 @@ body {
   margin-bottom: 30px;
 }
 
+.contact_info_container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
 .contact-info__block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.contact-info__block:last-child {
+  justify-self: end;
+}
+
 .contact-info__block--center {
   justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.contact-info__block--center:hover {
+  transform: scale(1.2);
 }
 
 .contact-info__item {
@@ -101,6 +97,8 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: start;
+  align-items: center;
+  transition: all 0.3s;
 }
 
 .contact-info__item:not(:last-child) {
@@ -116,6 +114,15 @@ body {
 
 .contact-info__item-icon path {
   fill: var(--icon-color);
+  transition: all 0.3s;
+}
+
+.contact-info__item:hover {
+  color: var(--text-decoration-color);
+}
+
+.contact-info__item:hover .contact-info__item-icon path {
+  fill: var(--text-decoration-color);
 }
 
 .contact-info__item-icon {
@@ -133,7 +140,6 @@ body {
 }
 
 /* Intro and skills styles */
-
 .intro {
   display: flex;
   justify-content: start;
@@ -192,8 +198,6 @@ body {
 
 .experiences__company-header-name {
   color: var(--primary-text-color);
-  text-decoration-color: var(--text-decoration-color);
-  text-decoration-line: underline;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -264,4 +268,45 @@ body {
 
 .additional-info__languages-item {
   color: var(--secondary-text-color);
+}
+
+.other-info {
+  color: var(--secondary-text-color);
+  gap: 24px;
+}
+
+.likes,
+.dislikes,
+.hobbies {
+  flex: 1 1 33.333%;
+}
+
+.likes__header,
+.dislikes__header,
+.hobbies__header {
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+@media screen and (max-width: 576px) {
+  .main-info,
+  .other-info,
+  .contact_info_container {
+    flex-direction: column;
+  }
+
+  .contact_info_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info__block:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .experiences {
+    margin-right: 0;
+  }
 }
